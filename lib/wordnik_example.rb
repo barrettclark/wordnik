@@ -1,4 +1,4 @@
-require 'httparty'
+require 'httparty'    # TODO: use ActiveResource instead here
 require 'wordnik/word'
 require 'wordnik/definition'
 require 'wordnik/example'
