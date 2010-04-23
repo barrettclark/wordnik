@@ -1,4 +1,8 @@
 Wordnik::Application.routes.draw do |map|
+  get "word/index"
+
+  get "word/random"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
