@@ -1,2 +1,10 @@
 Use this README file to introduce your application and point to useful places in the API for learning more.
 Run "rake doc:app" to generate API documentation for your models, controllers, helpers, and libraries.
+
+Special thanks to:
+http://yehudakatz.com/tags/rails-3/
+http://www.viget.com/extend/rails-3-generators-the-old-faithful/
+http://github.com/psynix/rails3_haml_scaffold_generator
+http://railscasts.com/episodes/199-mobile-devices
+http://code.google.com/p/jqtouch/wiki/GettingStarted
+http://jonathanstark.com/sxsw
