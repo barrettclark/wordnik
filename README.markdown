@@ -5,4 +5,3 @@ This is a Rails 3 app that taps into the Wordnik API.
 = Goals
 * Use the Wordnik API so that the app qualifies for the Developer's contest
 * Use jQtouch for iPhone view and functionality
-
