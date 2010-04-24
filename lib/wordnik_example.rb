@@ -10,7 +10,7 @@ class WordnikExample
   base_uri 'http://api.wordnik.com/api'
   headers 'Content-Type' => 'application/json'
   
-  API_KEY = '93258932a2cf8104dce2604abe90708fa097c4d18b9a26e52'
+  API_KEY = 'my_key_here'
 
   # get an array of Example objects for a word
   def self.examples(word)
