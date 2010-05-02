@@ -6,6 +6,7 @@ class WordController < ApplicationController
   end
 
   def random
+    respond_with(@word = Api::Wordnik.random_word)
   end
 
 end

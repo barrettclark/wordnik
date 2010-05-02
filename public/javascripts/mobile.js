@@ -1,11 +1,11 @@
 // javascripts/mobile.js
 $.jQTouch({
-        icon: 'jqtouch.png',
+        icon: 'images/rails.png',
         statusBar: 'black-translucent',
         preloadImages: [
-            'themes/jqt/img/chevron_white.png',
-            'themes/jqt/img/bg_row_select.gif',
-            'themes/jqt/img/back_button_clicked.png',
-            'themes/jqt/img/button_clicked.png'
+            '/jqtouch/themes/apple/img/chevron.png',
+            '/jqtouch/themes/apple/img/cancel.png',
+            '/jqtouch/themes/apple/img/backButton.png',
+            '/jqtouch/themes/apple/img/loading.gif'
             ]
     });
