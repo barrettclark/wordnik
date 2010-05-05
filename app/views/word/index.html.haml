@@ -1,3 +1,8 @@
-%ul
-  %li= @wod.attributes['wordstring']
-  %li= @wod.attributes['definition'].text
+#home
+  %div{ :class => 'toolbar' }
+    %h1 Word of the Day
+  %ul
+    %li= @wod.attributes['wordstring']
+    %li= @wod.attributes['definition'].text
+  %div{ :class => 'info' }
+    Powered By Wordnik

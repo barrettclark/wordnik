@@ -1,3 +1,7 @@
-%ul
-  %li Random word:
-  %li= @word.attributes['wordstring']
+#home
+  %div{ :class => 'toolbar' }
+    %h1 Random Word
+  %ul
+    %li= @word.attributes['wordstring']
+  %div{ :class => 'info' }
+    Powered By Wordnik
