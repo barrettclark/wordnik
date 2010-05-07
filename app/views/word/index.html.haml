@@ -1,8 +1,26 @@
 #home
-  %div{ :class => 'toolbar' }
-    %h1 Word of the Day
-  %ul
-    %li= @wod.attributes['wordstring']
+  =render :partial => 'wod_toolbar'
+  %ul{ :class => 'rounded' }
     %li= @wod.attributes['definition'].text
-  %div{ :class => 'info' }
-    Powered By Wordnik
+    %li{ :class => 'arrow' }
+      = link_to 'Examples', '#examples'
+      %small{ :class => 'counter' }= @wod.attributes['example'].size
+    %li{ :class => 'arrow' }
+      = link_to 'Note', '#note'
+
+  %h2 Other Stuffs
+  %ul{ :class => 'rounded' }
+    %li{ :class => 'forward' }= link_to 'Random Word', word_random_path
+
+  =render :partial => 'powered'
+
+#examples
+  =render :partial => 'wod_toolbar'
+  %ul{ :class => 'rounded' }
+    - @wod.attributes['example'].each do |example|
+      %li=example.text
+
+#note
+  =render :partial => 'wod_toolbar'
+  %ul{ :class => 'rounded' }
+    %li= @wod.attributes['note']

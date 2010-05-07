@@ -16,7 +16,7 @@ module Api
     
     def self.definitions(word)
       # this appears to be correct, but doesn't return anything
-      self.find(:first, :from => "/api/word.xml/#{word}/definitions")
+      self.find(:all, :from => "/api/word.xml/#{word}/definitions")
     end
   end
 end

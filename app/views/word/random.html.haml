@@ -3,5 +3,4 @@
     %h1 Random Word
   %ul
     %li= @word.attributes['wordstring']
-  %div{ :class => 'info' }
-    Powered By Wordnik
+  =render :partial => 'powered'
