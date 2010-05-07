@@ -15,12 +15,20 @@
   =render :partial => 'powered'
 
 #examples
-  =render :partial => 'wod_toolbar'
+  %div{ :class => 'toolbar' }
+    %h1 Word of the Day
+    =link_to 'Home', '#home', :class => 'back'
+
+  %h2= @wod.attributes['wordstring']
   %ul{ :class => 'rounded' }
     - @wod.attributes['example'].each do |example|
       %li=example.text
 
 #note
-  =render :partial => 'wod_toolbar'
+  %div{ :class => 'toolbar' }
+    %h1 Word of the Day
+    =link_to 'Home', '#home', :class => 'back'
+
+  %h2= @wod.attributes['wordstring']
   %ul{ :class => 'rounded' }
     %li= @wod.attributes['note']
