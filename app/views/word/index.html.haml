@@ -1,17 +1,17 @@
 #home
   =render :partial => 'wod_toolbar'
   %ul{ :class => 'rounded' }
-    - @wod.attributes['definition'].each do |definition|
+    - @wod.definition.each do |definition|
       %li= definition.text
     %li{ :class => 'arrow' }
       = link_to 'Examples', '#examples'
-      %small{ :class => 'counter' }= @wod.attributes['example'].size
+      %small{ :class => 'counter' }= @wod.example.size
     %li{ :class => 'arrow' }
       = link_to 'Note', '#note'
 
   %h2 Other Stuffs
   %ul{ :class => 'rounded' }
-    %li{ :class => 'forward' }= link_to 'Random Word', word_random_path
+    %li{ :class => 'forward' }= link_to 'Random Word', word_random_url, :target => '_webapp'
 
   =render :partial => 'powered'
 
@@ -20,9 +20,9 @@
     %h1 Word of the Day
     =link_to 'Home', '#home', :class => 'back'
 
-  %h2= @wod.attributes['wordstring']
+  %h2= @wod.wordstring
   %ul{ :class => 'rounded' }
-    - @wod.attributes['example'].each do |example|
+    - @wod.example.each do |example|
       %li=example.text
 
 #note
@@ -30,6 +30,6 @@
     %h1 Word of the Day
     =link_to 'Home', '#home', :class => 'back'
 
-  %h2= @wod.attributes['wordstring']
+  %h2= @wod.wordstring
   %ul{ :class => 'rounded' }
-    %li= @wod.attributes['note']
+    %li= @wod.note

@@ -6,7 +6,7 @@ module Api
 
     def self.random_word
       # random = Api::Wordnik.random_word
-      word = self.find(:one, :from => "/api/words.xml/randomWord")
+      word = self.find(:one, :from => "/api/words.xml/randomWord?hasDictionaryDef=true")
     end
     
     def self.word_of_the_day
@@ -15,8 +15,8 @@ module Api
     end
     
     def self.definitions(word)
-      # this appears to be correct, but doesn't return anything
-      self.find(:all, :from => "/api/word.xml/#{word}/definitions")
+      # word = Api::Wordnik.definitions(word)
+      self.find(:one, :from => "/api/word.xml/#{word}/definitions?count=1")
     end
   end
 end
