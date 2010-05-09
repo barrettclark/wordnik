@@ -1,7 +1,8 @@
 #home
   =render :partial => 'wod_toolbar'
   %ul{ :class => 'rounded' }
-    %li= @wod.attributes['definition'].text
+    - @wod.attributes['definition'].each do |definition|
+      %li= definition.text
     %li{ :class => 'arrow' }
       = link_to 'Examples', '#examples'
       %small{ :class => 'counter' }= @wod.attributes['example'].size
