@@ -1,5 +1,8 @@
 #home
-  =render :partial => 'wod_toolbar'
+  %div{ :class => 'toolbar' }
+    %h1 Today's Word
+
+  %h2= @wod.wordstring
   %ul{ :class => 'rounded' }
     - @wod.definition.each do |definition|
       %li= definition.text

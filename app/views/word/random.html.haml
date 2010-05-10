@@ -3,7 +3,7 @@
     %h1 Random Word
     %li{ :class => 'forward' }= link_to 'Home', root_url, :class => 'back', :target => '_webapp'
     
+  %h2= @word.definition.headword
   %ul{ :class => 'rounded' }
-    %li= @word.definition.headword
     %li= @word.definition.text
   =render :partial => 'powered'
