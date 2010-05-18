@@ -2,7 +2,7 @@ module Api
   class Wordnik < ActiveResource::Base
     self.site = "http://api.wordnik.com/"
     self.timeout = 20
-    headers['api_key'] = 'my_api_key'
+    headers['api_key'] = '93258932a2cf8104dce2604abe90708fa097c4d18b9a26e52'
 
     def self.random_word
       # random = Api::Wordnik.random_word
