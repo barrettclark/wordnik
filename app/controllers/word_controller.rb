@@ -16,7 +16,6 @@ class WordController < ApplicationController
   
   private
   def fetch_random_word_definition
-    # TODO: clean up special tags returned
     word = Api::Wordnik.definitions(CGI.escape(Api::Wordnik.random_word.wordstring))
     if word && word.definition && word.definition.text =~ /xref/
       word = nil
