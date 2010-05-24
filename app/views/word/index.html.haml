@@ -12,7 +12,7 @@
     %li{ :class => 'arrow' }
       = link_to 'Note', '#note'
 
-  %h2 Other Stuffs
+  %h2 More Fun With Words
   %ul{ :class => 'rounded' }
     %li{ :class => 'forward' }= link_to 'Random Word', word_random_url, :target => '_webapp'
 
@@ -20,7 +20,7 @@
 
 #examples
   %div{ :class => 'toolbar' }
-    %h1 Word of the Day
+    %h1 Today's Word
     =link_to 'Home', '#home', :class => 'back'
 
   %h2= @wod.wordstring
@@ -30,7 +30,7 @@
 
 #note
   %div{ :class => 'toolbar' }
-    %h1 Word of the Day
+    %h1 Today's Word
     =link_to 'Home', '#home', :class => 'back'
 
   %h2= @wod.wordstring
