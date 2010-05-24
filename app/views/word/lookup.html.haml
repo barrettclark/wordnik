@@ -1,0 +1,13 @@
+#home
+  %form#wordnik_lookup.form{:action => word_definition_path, :method => "POST"}
+    .toolbar
+      %h1 Dictionary
+    %ul.rounded
+      %li
+        %label Find:
+        %input{:name => "word", :type => "text"}/
+    =submit_tag "Lookup", :onclick => "this.form.submit();"
+    =token_tag
+    
+  =render :partial => 'fun'
+  =render :partial => 'powered'
