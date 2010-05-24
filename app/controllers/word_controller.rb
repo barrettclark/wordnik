@@ -17,7 +17,9 @@ class WordController < ApplicationController
   def lookup
   end
   def definition
-    @word = Api::Wordnik.definitions(CGI.escape(params[:word]), 1)
+    # TODO: suggestions of word is not found
+    # TODO: make the form not capitalize the word by default?
+    @word = Api::Wordnik.definitions(CGI.escape(params[:word].downcase), 1)
   end
   
   private
