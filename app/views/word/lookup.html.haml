@@ -6,7 +6,7 @@
       %li
         %label Find:
         %input{:name => "word", :type => "text"}/
-    =submit_tag "Lookup", :onclick => "this.form.submit();"
+      %li{:style => "text-align:center"}= submit_tag "Lookup", :onclick => "this.form.submit();", :name => "action"
     =token_tag
     
   =render :partial => 'fun'
