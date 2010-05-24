@@ -19,7 +19,11 @@ class WordController < ApplicationController
   def definition
     # TODO: suggestions of word is not found
     # TODO: make the form not capitalize the word by default?
-    @word = Api::Wordnik.definitions(CGI.escape(params[:word].downcase), 1)
+    begin
+      @word = Api::Wordnik.definitions(CGI.escape(params[:word].downcase), 1)
+    rescue ActiveResource::ResourceNotFound
+      @word = Api::Wordnik.definitions('error')
+    end
   end
   
   private
