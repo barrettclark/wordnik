@@ -4,3 +4,4 @@ if "irb" == $0
   ActiveResource::Base.logger = Logger.new(STDOUT)
 end
 # ActiveResource::Base.logger = ActiveRecord::Base.logger
+ActiveResource::Base.logger = Logger.new(STDOUT)

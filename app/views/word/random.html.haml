@@ -6,4 +6,6 @@
   %h2= @word.definition.headword
   %ul{ :class => 'rounded' }
     %li= @word.definition.text
+
+  =render :partial => 'fun'
   =render :partial => 'powered'
