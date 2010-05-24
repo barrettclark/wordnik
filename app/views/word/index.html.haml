@@ -12,15 +12,12 @@
     %li{ :class => 'arrow' }
       = link_to 'Note', '#note'
 
-  %h2 Other Stuffs
-  %ul{ :class => 'rounded' }
-    %li{ :class => 'forward' }= link_to 'Random Word', word_random_url, :target => '_webapp'
-
+  =render :partial => 'fun'
   =render :partial => 'powered'
 
 #examples
   %div{ :class => 'toolbar' }
-    %h1 Word of the Day
+    %h1 Examples
     =link_to 'Home', '#home', :class => 'back'
 
   %h2= @wod.wordstring
@@ -28,11 +25,17 @@
     - @wod.example.each do |example|
       %li=example.text
 
+  =render :partial => 'fun'
+  =render :partial => 'powered'
+
 #note
   %div{ :class => 'toolbar' }
-    %h1 Word of the Day
+    %h1 Note
     =link_to 'Home', '#home', :class => 'back'
 
   %h2= @wod.wordstring
   %ul{ :class => 'rounded' }
     %li= @wod.note
+
+  =render :partial => 'fun'
+  =render :partial => 'powered'

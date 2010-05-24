@@ -14,9 +14,14 @@ class WordController < ApplicationController
     end
   end
   
+  def lookup
+  end
+  def definition
+    @word = Api::Wordnik.definitions(CGI.escape(params[:word]), 1)
+  end
+  
   private
   def fetch_random_word_definition
-    # TODO: clean up special tags returned
     word = Api::Wordnik.definitions(CGI.escape(Api::Wordnik.random_word.wordstring))
     if word && word.definition && word.definition.text =~ /xref/
       word = nil

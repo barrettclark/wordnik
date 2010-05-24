@@ -1,9 +1,8 @@
 #home
   %div{ :class => 'toolbar' }
-    %h1 Random Word
+    %h1= @word.definition.headword
     %li{ :class => 'forward' }= link_to 'Home', root_url, :class => 'back', :target => '_webapp'
     
-  %h2= @word.definition.headword
   %ul{ :class => 'rounded' }
     %li= @word.definition.text
 

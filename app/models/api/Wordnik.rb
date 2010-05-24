@@ -14,9 +14,9 @@ module Api
       self.find(:one, :from => "/api/wordoftheday.xml")
     end
     
-    def self.definitions(word)
+    def self.definitions(word, count = 1)
       # word = Api::Wordnik.definitions(word)
-      self.find(:one, :from => "/api/word.xml/#{word}/definitions?count=1")
+      self.find(:one, :from => "/api/word.xml/#{word}/definitions?count=#{count}")
     end
   end
 end
