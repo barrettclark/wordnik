@@ -16,8 +16,10 @@ class WordController < ApplicationController
   
   def lookup
   end
+
   def suggest    
   end
+
   def definition
     @lookup = CGI.escape(params[:word])
     begin
