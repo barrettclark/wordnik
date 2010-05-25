@@ -1,0 +1,12 @@
+#home
+  %div{ :class => 'toolbar' }
+    %h1= "'#{@lookup}' Not Found"
+    %li{ :class => 'forward' }= link_to 'Home', root_url, :class => 'back', :target => '_webapp'
+    
+  %h2 Try one of these?
+  %ul{ :class => 'rounded' }
+    - @word.suggestions.each do |suggest|
+      %li{ :class => 'forward' }= link_to suggest, word_definition_url(:word => suggest), :target => '_webapp', :method => :post
+
+  =render :partial => 'fun'
+  =render :partial => 'powered'

@@ -3,9 +3,10 @@
     %h1 Random Word
     %li{ :class => 'forward' }= link_to 'Home', root_url, :class => 'back', :target => '_webapp'
     
-  %h2= @word.definition.headword
+  %h2= @lookup
   %ul{ :class => 'rounded' }
-    %li= @word.definition.text
+    - @word.each do |w|
+      %li= "(#{w.partOfSpeech}) #{w.text}"
 
   =render :partial => 'fun'
   =render :partial => 'powered'

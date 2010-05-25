@@ -5,9 +5,9 @@ module Api
     self.format = :json
     headers['api_key'] = '93258932a2cf8104dce2604abe90708fa097c4d18b9a26e52'
 
-    def self.definitions(word, count = 1)
+    def self.definitions(word)
       # word = Api::Wordnik.definitions(word)
-      self.find(:all, :from => "/api/word.json/#{word}/definitions?count=#{count}")
+      self.find(:all, :from => "/api/word.json/#{word}/definitions")
     end
 
     def self.random_word

@@ -16,20 +16,31 @@ class WordController < ApplicationController
   
   def lookup
   end
+  def suggest    
+  end
   def definition
     # TODO: suggestions of word is not found
     # TODO: make the form not capitalize the word by default?
+    @lookup = CGI.escape(params[:word])
     begin
-      @word = Api::Wordnik.definitions(CGI.escape(params[:word].downcase), 1)
+      @word = Api::Wordnik.definitions(@lookup)
+      if @word == Array.new
+        @word = Api::Wordnik.suggest(@lookup)
+        render :action => "suggest"
+      else
+        respond_with(@word)
+      end
     rescue ActiveResource::ResourceNotFound
-      @word = Api::Wordnik.definitions('error')
+      @word = Api::Wordnik.suggest(@lookup)
+      render :action => "suggest"
     end
   end
   
   private
   def fetch_random_word_definition
-    word = Api::Wordnik.definitions(CGI.escape(Api::Wordnik.random_word.wordstring))
-    if word && word.definition && word.definition.text =~ /xref/
+    @lookup = Api::Wordnik.random_word.wordstring
+    word = Api::Wordnik.definitions(CGI.escape(@lookup))
+    if word && (word.first.text =~ /xref/ || word == Array.new)
       word = nil
     end
     word
