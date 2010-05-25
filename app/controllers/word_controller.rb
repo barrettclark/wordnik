@@ -26,7 +26,11 @@ class WordController < ApplicationController
       @word = Api::Wordnik.definitions(@lookup)
       if @word == Array.new
         @word = Api::Wordnik.suggest(@lookup)
-        render :action => "suggest"
+        unless @word.attributes.has_key?('suggestions')
+          @word = Api::Wordnik.definitions(@word.wordstring)
+        else
+          render :action => "suggest"
+        end
       else
         respond_with(@word)
       end
