@@ -1,11 +1,9 @@
 #home
   %div{ :class => 'toolbar' }
-    %h1= @lookup
+    %h1= "'#{@lookup}' Not Found"
     %li{ :class => 'forward' }= link_to 'Home', root_url, :class => 'back', :target => '_webapp'
     
-  %ul{ :class => 'rounded' }
-    - @word.each do |w|
-      %li= "#{part_of_speech(w)}#{w.text}"
+  %h2 Unfortunately we were unable to find anything for '#{@lookup}'
 
   =render :partial => 'fun'
   =render :partial => 'powered'

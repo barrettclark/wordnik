@@ -16,27 +16,33 @@ class WordController < ApplicationController
   
   def lookup
   end
-
   def suggest    
+  end
+  def unfound    
   end
 
   def definition
     @lookup = CGI.escape(params[:word])
+    @word = Array.new
     begin
       @word = Api::Wordnik.definitions(@lookup)
       if @word == Array.new
         @word = Api::Wordnik.suggest(@lookup)
-        unless @word.attributes.has_key?('suggestions')
-          @word = Api::Wordnik.definitions(@word.wordstring)
-        else
+        if @word.attributes.has_key?('suggestions')
           render :action => "suggest"
+        else
+          @word = Api::Wordnik.definitions(@word.wordstring)
+          if @word.size > 0
+            respond_with(@word)
+          else
+            render :action => "unfound"
+          end
         end
       else
         respond_with(@word)
       end
-    rescue ActiveResource::ResourceNotFound
-      @word = Api::Wordnik.suggest(@lookup)
-      render :action => "suggest"
+    rescue
+      render :action => "unfound"
     end
   end
   

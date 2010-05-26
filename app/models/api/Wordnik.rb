@@ -7,7 +7,18 @@ module Api
 
     def self.definitions(word)
       # word = Api::Wordnik.definitions(word)
-      self.find(:all, :from => "/api/word.json/#{word}/definitions")
+      begin
+        self.find(:all, :from => "/api/word.json/#{word}/definitions")
+      rescue ActiveResource::ResourceNotFound
+        puts "*** ResourceNotFound ***"
+        render :action => "unfound"
+      rescue ActiveResource::ClientError
+        puts "*** ClientError ***"
+        render :action => "unfound"
+      rescue ActiveResource::ServerError
+        puts "*** ServerError ***"
+        render :action => "unfound"
+      end
     end
 
     def self.random_word
